@@ -1,11 +1,11 @@
-const Koa = require('koa');
+const Koa = require('koa')
 // const path = require('path');
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000
 
-const app = new Koa();
+const app = new Koa()
 
 app.use(async (ctx) => {
-  ctx.body = 'Hello World';
-});
+  ctx.body = 'Hello World'
+})
 
-app.listen(PORT);
+app.listen(PORT)
