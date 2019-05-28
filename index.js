@@ -10,7 +10,7 @@ app.use(async (ctx) => {
   ctx.body = `
     <h1>بسم الله الرحمن الرحيم</h1>
     <h2>Ahlsunnah Radio API</h2>
-    <a href="./stations.json">stations</a>
+    <a href="./station-playlists.json">stations playlists</a>
   `
 })
 

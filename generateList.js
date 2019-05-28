@@ -38,5 +38,5 @@ const stations = Object.values(stationsObj)
     return -1
   })
 
-fs.writeFileSync('./public/stations.json', JSON.stringify(stations))
+fs.writeFileSync('./public/station-playlists.json', JSON.stringify(stations))
 console.log(stations)
