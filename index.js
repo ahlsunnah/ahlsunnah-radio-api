@@ -1,11 +1,19 @@
 const Koa = require('koa')
-// const path = require('path');
+const serve = require('koa-static')
 const PORT = process.env.PORT || 5000
 
 const app = new Koa()
 
+app.use(serve('./public'))
+
 app.use(async (ctx) => {
-  ctx.body = 'Hello World'
+  ctx.body = `
+    <h1>بسم الله الرحمن الرحيم</h1>
+    <h2>Ahlsunnah Radio API</h2>
+    <a href="./stations.json">stations</a>
+  `
 })
 
-app.listen(PORT)
+app.listen(PORT, () => {
+  console.log('listening on http://localhost:' + PORT)
+})
