@@ -1,4 +1,4 @@
-const collectionFolder = './public/collection/'
+const collectionFolder = './public/assets/'
 const fs = require('fs')
 
 const stationsObj = {}
@@ -14,12 +14,13 @@ fs.readdirSync(collectionFolder).forEach((file) => {
     if (!stationsObj[name]) {
       stationsObj[name] = {}
     }
-    const path = '/collection/' + file
+    const path = '/assets/' + file
     if (ext === 'm3u') {
-      stationsObj[name].url = path
+      stationsObj[name].url = ''
     } else {
       stationsObj[name].img = path
     }
+    stationsObj[name].name = name
   }
 })
 
@@ -30,11 +31,11 @@ function isArabic(text) {
 }
 
 const stations = Object.values(stationsObj)
-  .filter(({url}) => !!url)
+  //   .filter(({url}) => !!url)
   .sort((a, b) => {
-    if (isArabic(a.url) && !isArabic(b.url)) return -1
-    if (!isArabic(a.url) && isArabic(b.url)) return 1
-    if (a.url > b.url) return 1
+    if (isArabic(a.name) && !isArabic(b.name)) return -1
+    if (!isArabic(a.name) && isArabic(b.name)) return 1
+    if (a.name > b.name) return 1
     return -1
   })
 
