@@ -16,28 +16,32 @@
     "name": "إذاعة ميراث الأنبياء الرئيسة"
   },
   {
+    "url": "http://184.154.202.243:8089/stream",
+    "name": "رياض الصالحيم"
+  },
+  {
     "url": "http://178.32.57.87:7030/stream",
     "name": "مجالس ميراث الأنبياء التأصيلية"
   },
   {
     "url": "https://listen.radioking.com/radio/44722/stream/81445",
     "name": "La Voie Droite (FR)",
-    "img": "/assets/La Voie Droite (FR).png"
+    "img": "/public/assets/La Voie Droite (FR).png"
   },
   {
     "url": "http://miraath.ddns.net:7060/stream",
     "name": "Miraath DE",
-    "img": "/assets/Miraath DE.png"
+    "img": "/public/assets/Miraath DE.png"
   },
   {
     "url": "http://radio.miraath.net:7040/live",
-    "img": "/assets/Miraath EN.jpg",
+    "img": "/public/assets/Miraath EN.jpg",
     "name": "Miraath EN"
   },
   {
     "url": "http://miraath.ddns.net:7050/stream?1559018996085",
     "name": "Miraath FR",
-    "img": "/assets/Miraath FR.png"
+    "img": "/public/assets/Miraath FR.png"
   },
   {
     "url": "https://listen.radioking.com/radio/43366/stream/80008",
