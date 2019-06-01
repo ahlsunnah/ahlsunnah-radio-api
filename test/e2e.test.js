@@ -47,11 +47,14 @@ describe('routes: stations', () => {
           return request(server)
             .get(img)
             .then((res) => {
-              if (!imgRE.test(res.type)) {
-                console.error('failed for : ' + img, ', type: ', res.type)
-              }
-              expect(res.type).toMatch(imgRE)
-              expect(res.status).toEqual(200)
+              expect(
+                res.type,
+                `${img} doesn't match an image type, it is ${res.type}`,
+              ).toMatch(imgRE)
+              expect(
+                res.status,
+                `${img} doesn't respond with 200 status, but ${res.status}`,
+              ).toEqual(200)
               return true
             })
             .catch((e) => {
