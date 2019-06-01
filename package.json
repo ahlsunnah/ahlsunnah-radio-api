@@ -11,7 +11,7 @@
     "dev": "nodemon index.js",
     "generate": "node generateList.js",
     "start": "NODE_ENV=production node index.js",
-    "publish": "npm run test && git push prod master",
+    "deploy": "npm run test && git push prod master",
     "test": "jest"
   },
   "dependencies": {
