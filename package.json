@@ -1,6 +1,7 @@
 {
   "name": "ahlsunnah-radio-api",
   "version": "0.3.0",
+  "private": true,
   "description": "An API for ahlsunnah radio",
   "engines": {
     "node": "10.x"
