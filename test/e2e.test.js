@@ -1,6 +1,6 @@
 const server = require('../index')
 const request = require('supertest')
-
+const stations = require('../stations.json')
 const imgRE = /image\/(png|jpeg)/
 
 afterEach(() => {
@@ -24,25 +24,32 @@ describe('routes: public/privacy-policy', () => {
   })
 })
 
-describe('routes: stations', () => {
+describe('routes: stations', async () => {
   test('should respond as expected', async () => {
     const response = await request(server).get('/stations/')
+
     expect(response.status).toEqual(200)
     expect(response.type).toEqual('application/json')
     expect(response.text.length > 0).toBeTruthy()
   })
 
-  test('all station should have an url and a name', async () => {
-    const response = await request(server).get('/stations/')
-    expect(
-      JSON.parse(response.text).every(({url, name}) => url && name),
-    ).toBeTruthy()
-  })
+  test.each(['id', 'url', 'name', 'img', 'website'])(
+    'all stations should have a %s',
+    async (property) => {
+      const response = await request(server).get('/stations/')
+      expect(
+        JSON.parse(response.text).every(
+          (station) => station[property] !== undefined,
+        ),
+      ).toBeTruthy()
+    },
+  )
+})
 
+describe('All imgs in stations file exists', () =>
   test('all img exists', async () => {
-    const response = await request(server).get('/stations/')
     await Promise.all(
-      JSON.parse(response.text).map(({img}) => {
+      stations.map(({img}) => {
         if (img) {
           return request(server)
             .get(img)
@@ -64,5 +71,4 @@ describe('routes: stations', () => {
         } else return true
       }),
     )
-  })
-})
+  }))
