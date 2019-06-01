@@ -10,7 +10,8 @@
     "dev": "nodemon index.js",
     "generate": "node generateList.js",
     "start": "NODE_ENV=production node index.js",
-    "test": "node test.js"
+    "publish": "npm run test && git push prod master",
+    "test": "jest"
   },
   "dependencies": {
     "koa": "^2.7.0",
@@ -18,9 +19,9 @@
     "koa-send": "^5.0.0"
   },
   "devDependencies": {
+    "jest": "^24.8.0",
     "nodemon": "^1.19.1",
-    "request": "^2.81.0",
-    "tape": "^4.7.0"
+    "supertest": "^4.0.2"
   },
   "repository": {
     "type": "git",

@@ -29,6 +29,8 @@ router
 
 app.use(router.routes()).use(router.allowedMethods())
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log('listening on http://localhost:' + PORT)
 })
+
+module.exports = server
