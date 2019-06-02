@@ -34,6 +34,8 @@ router
     return send(ctx, ctx.path, {
       immutable: true,
       // maxAge: oneYearMs,
+    }).get('/test-error', () => {
+      testError()
     })
   })
 
