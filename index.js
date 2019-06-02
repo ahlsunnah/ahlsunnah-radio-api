@@ -6,8 +6,9 @@ const app = new Koa()
 const router = new Router()
 const Sentry = require('@sentry/node')
 
-const SHOULD_USE_SENTRY =
-  process.env.NODE_ENV === 'production' && process.env.SENTRY_DSN
+const IS_PROD = process.env.NODE_ENV === 'production'
+
+const SHOULD_USE_SENTRY = IS_PROD && process.env.SENTRY_DSN
 
 if (SHOULD_USE_SENTRY) {
   Sentry.init({
@@ -42,15 +43,15 @@ router
 app.use(router.routes()).use(router.allowedMethods())
 
 app.on('error', (err) => {
-  if (process.env.NODE_ENV === 'production') {
-    if (SHOULD_USE_SENTRY) Sentry.captureException(err)
+  if (SHOULD_USE_SENTRY) {
+    Sentry.captureException(err)
   } else {
     console.error(err)
   }
 })
 
 const server = app.listen(PORT, () => {
-  console.log('listening on http://localhost:' + PORT)
+  if (!IS_PROD) console.log('listening on http://localhost:' + PORT)
 })
 
 module.exports = server
