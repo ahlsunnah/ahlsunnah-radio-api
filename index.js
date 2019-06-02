@@ -37,9 +37,6 @@ router
       // maxAge: oneYearMs,
     })
   })
-  .get('/test-error', () => {
-    testError()
-  })
 
 app.use(router.routes()).use(router.allowedMethods())
 
@@ -52,7 +49,7 @@ app.on('error', (err) => {
 })
 
 const server = app.listen(PORT, () => {
-  console.log('listening on http://localhost:' + PORT)
+  if (!IS_PROD) console.log('listening on http://localhost:' + PORT)
 })
 
 module.exports = server
