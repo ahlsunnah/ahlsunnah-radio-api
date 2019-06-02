@@ -4,6 +4,16 @@ const Router = require('koa-router')
 const PORT = process.env.PORT || 5000
 const app = new Koa()
 const router = new Router()
+const Sentry = require('@sentry/node')
+
+const SHOULD_USE_SENTRY =
+  process.env.NODE_ENV === 'production' && process.env.SENTRY_DSN
+
+if (SHOULD_USE_SENTRY) {
+  Sentry.init({
+    dsn: process.env.SENTRY_DSN,
+  })
+}
 
 // const oneDayMs = 1000 * 60 * 60 * 24
 // const oneYearMs = oneDayMs * 365
@@ -28,6 +38,14 @@ router
   })
 
 app.use(router.routes()).use(router.allowedMethods())
+
+app.on('error', (err) => {
+  if (process.env.NODE_ENV === 'production') {
+    if (SHOULD_USE_SENTRY) Sentry.captureException(err)
+  } else {
+    console.error(err)
+  }
+})
 
 const server = app.listen(PORT, () => {
   console.log('listening on http://localhost:' + PORT)

@@ -8,13 +8,14 @@
   },
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
+    "dev": "eval $(cat .env) nodemon index.js",
     "generate": "node generateList.js",
     "start": "NODE_ENV=production node index.js",
     "deploy": "npm run test && git push prod master",
     "test": "jest"
   },
   "dependencies": {
+    "@sentry/node": "^5.3.0",
     "koa": "^2.7.0",
     "koa-router": "^7.4.0",
     "koa-send": "^5.0.0"
