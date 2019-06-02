@@ -7,13 +7,6 @@
     "website": "https://miraath.net/ar"
   },
   {
-    "id": "riyad-salihin-quran",
-    "url": "http://198.178.121.76:8329/stream",
-    "name": "إذاعة القرآن الكريم (رياض الصالحيم)",
-    "img": "/public/assets/riyad-salihin.jpg",
-    "website": "https://riadalsaliheen.com/ar/"
-  },
-  {
     "id": "miraath-3",
     "url": "http://178.32.57.87:7080/stream",
     "name": "إذاعة ميراث الأنبياء الثالثة",
@@ -37,7 +30,7 @@
   {
     "id": "riyad-salihin",
     "url": "http://184.154.202.243:8089/stream",
-    "name": "رياض الصالحيم",
+    "name": "رياض الصالحين",
     "img": "/public/assets/riyad-salihin.jpg",
     "website": "https://riadalsaliheen.com/ar/"
   },
