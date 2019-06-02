@@ -18,7 +18,9 @@
     "@sentry/node": "^5.3.0",
     "koa": "^2.7.0",
     "koa-router": "^7.4.0",
-    "koa-send": "^5.0.0"
+    "koa-send": "^5.0.0",
+    "node-internet-radio": "^0.1.5",
+    "promise-retry": "^1.1.1"
   },
   "devDependencies": {
     "jest": "^24.8.0",
