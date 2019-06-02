@@ -1,6 +1,6 @@
 const server = require('../index')
 const request = require('supertest')
-const stations = require('../stations.json')
+const stations = require('../src/stations.json')
 const imgRE = /image\/(png|jpeg)/
 
 afterEach(() => {
