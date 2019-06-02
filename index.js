@@ -35,9 +35,10 @@ router
     return send(ctx, ctx.path, {
       immutable: true,
       // maxAge: oneYearMs,
-    }).get('/test-error', () => {
-      testError()
     })
+  })
+  .get('/test-error', () => {
+    testError()
   })
 
 app.use(router.routes()).use(router.allowedMethods())
@@ -51,7 +52,7 @@ app.on('error', (err) => {
 })
 
 const server = app.listen(PORT, () => {
-  if (!IS_PROD) console.log('listening on http://localhost:' + PORT)
+  console.log('listening on http://localhost:' + PORT)
 })
 
 module.exports = server
