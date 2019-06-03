@@ -3,7 +3,6 @@ const Router = require('koa-router')
 const PORT = process.env.PORT || 5000
 const app = new Koa()
 const router = new Router()
-const CronJob = require('cron').CronJob
 
 const currentRoute = require('./routes/current')
 const indexRoute = require('./routes/index')
@@ -33,15 +32,8 @@ const server = app.listen(PORT, () => {
 
 module.exports = server
 
-new CronJob(
-  `*/${CURRENT_TITLES_FETCH_INTERVAL} * * * * *`,
-  function() {
-    if (!IS_PROD) console.log('Refreshing current titles for all stations')
-    storeCurrentTitlesForStationsInCache()
-  },
-  null,
-  true,
-  'UTC',
-  undefined,
-  true,
+setInterval(
+  storeCurrentTitlesForStationsInCache,
+  CURRENT_TITLES_FETCH_INTERVAL * 1000,
 )
+storeCurrentTitlesForStationsInCache()
