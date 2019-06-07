@@ -10,6 +10,9 @@ const storeCurrentTitlesForStationsInCache = async () => {
   stations.forEach((station) =>
     tryGetStationInfo(station.url).then((info) => {
       cache.set(station.id, info.title)
+    }).catch((e) => {
+      // silent the error because of sentry
+      console.error(e)
     }),
   )
 }
