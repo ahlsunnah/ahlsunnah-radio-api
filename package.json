@@ -15,7 +15,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@koa/cors": "^2.2.3",
+    "@koa/cors": "^3.0.0",
     "@sentry/node": "^5.5.0",
     "koa": "^2.7.0",
     "koa-router": "^7.4.0",
