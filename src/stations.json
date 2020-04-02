@@ -29,25 +29,11 @@
   },
 
   {
-    "id": "miraath-de",
-    "url": "http://miraath.ddns.net:7060/stream",
-    "name": "Miraath DE",
-    "img": "/public/assets/miraath-de.png",
-    "website": "http://www.miraath.de/"
-  },
-  {
     "id": "miraath-en",
     "url": "http://radio.miraath.net:7040/live",
     "name": "Miraath EN",
     "img": "/public/assets/miraath-en.jpg",
     "website": "http://www.miraathpubs.net/en/radio/"
-  },
-  {
-    "id": "miraath-fr",
-    "url": "http://miraath.ddns.net:7050/stream?1559018996085",
-    "name": "Miraath FR",
-    "img": "/public/assets/miraath-fr.png",
-    "website": "http://www.miraath.fr/"
   },
   {
     "id": "voie-droite",
