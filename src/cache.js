@@ -6,16 +6,4 @@ const cache = new NodeCache({
   errorOnMissing: true,
 })
 
-const promisify = (fn) => (...args) =>
-  new Promise((resolve, reject) =>
-    fn(...args, (err, success) => {
-      if (err) reject(err)
-      resolve(success)
-    }),
-  )
-
-module.exports.set = promisify(cache.set)
-
-module.exports.get = promisify(cache.get)
-
-module.exports.mget = promisify(cache.mget)
+module.exports = cache
