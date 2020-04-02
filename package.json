@@ -4,7 +4,7 @@
   "private": true,
   "description": "An API for ahlsunnah radio",
   "engines": {
-    "node": "10.x"
+    "node": "12.x"
   },
   "main": "index.js",
   "scripts": {
