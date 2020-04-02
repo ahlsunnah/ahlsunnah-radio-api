@@ -1,5 +1,5 @@
 const Koa = require('koa')
-const cors = require('@koa/cors');
+const cors = require('@koa/cors')
 const Router = require('koa-router')
 const PORT = process.env.PORT || 5000
 const app = new Koa()
@@ -23,7 +23,7 @@ router
   .get('/stations', stationsRoute)
   .get('/public/(.*)', publicRoute)
 
-app.use(cors());
+app.use(cors())
 app.use(router.routes()).use(router.allowedMethods())
 
 app.on('error', errorHandler)
