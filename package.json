@@ -25,7 +25,7 @@
     "promise-retry": "^1.1.1"
   },
   "devDependencies": {
-    "jest": "^25.2.7",
+    "jest": "^25.3.0",
     "jest-expect-message": "^1.0.2",
     "nodemon": "^2.0.2",
     "npm-check-updates": "^4.1.1",
